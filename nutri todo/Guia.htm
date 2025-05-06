@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Vitaminas y Minerales</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0c3c6c; /* Fondo azul */
+        }
+
+        /* Menú de navegación */
+        nav.menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(12, 60, 108, 0.998);
+            padding: 15px 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        nav.menu .logo img {
+            height: 100px;
+        }
+
+        nav.menu .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: auto;
+        }
+
+        nav.menu .links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        nav.menu .links a:hover {
+            background-color: #336ab8;
+            color: rgb(255, 255, 255);
+        }
+
+        .menu-spacing {
+            height: 90px;
+        }
+
+        /* Sección de la guía */
+        .guia-vitaminas {
+            padding: 40px;
+            background: #1c62ad;
+            font-family: 'Segoe UI', sans-serif;
+            margin-top: 90px; /* Para que no se sobreponga con el menú */
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .tarjetas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .tarjeta {
+            background: #ece6c5;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+            border-left: 6px solid #4CAF50;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+        }
+
+        .tarjeta h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .tarjeta p {
+            margin: 6px 0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* Estilo para el botón */
+        a.regresar {
+            display: block;
+            margin-top: 30px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+            margin: 30px auto 0;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a.regresar:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menú de navegación -->
+    <nav class="menu">
+        <div class="logo">
+            <img src="logo/logo.jpg" alt="Logo Nutrición">
+        </div>
+        <div class="links">
+            <a href="NUTRICONOCIMIENTOOO pag web.htm">Inicio</a>
+            <a href="mision vision.htm">Objetivo</a>
+            <a href="Guia.htm">Beneficios</a>
+            <a href="recetas.htm">Recetas</a>
+            <a href="NUTRICONOCIMIENTOOO pag web.htm#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <div class="menu-spacing"></div> <!-- Espacio para no tapar contenido -->
+
+    <!-- Sección Guía de Vitaminas y Minerales -->
+    <section class="guia-vitaminas">
+        <h2 class="titulo">Guía de Vitaminas y Minerales</h2>
+        <div class="tarjetas-grid">
+
+            <div class="tarjeta">
+                <h3>Vitamina B12</h3>
+                <p><strong>Beneficios:</strong> Formación de glóbulos rojos, salud del sistema nervioso.</p>
+                <p><strong>Fuentes:</strong> Carne, pescado, huevos, lácteos, fortificados.</p>
+                <p><strong>Déficit:</strong> Fatiga, hormigueo, problemas de memoria.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Vitamina C</h3>
+                <p><strong>Beneficios:</strong> Refuerza el sistema inmune, absorción de hierro.</p>
+                <p><strong>Fuentes:</strong> Cítricos, fresas, kiwi, pimientos.</p>
+                <p><strong>Déficit:</strong> Encías sangrantes, fatiga, moretones.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Vitamina A</h3>
+                <p><strong>Beneficios:</strong> Visión, piel, defensa inmune.</p>
+                <p><strong>Fuentes:</strong> Zanahoria, espinaca, lácteos, hígado.</p>
+                <p><strong>Déficit:</strong> Ceguera nocturna, piel seca, infecciones.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Vitamina D</h3>
+                <p><strong>Beneficios:</strong> Absorción de calcio, huesos fuertes.</p>
+                <p><strong>Fuentes:</strong> Sol, pescado graso, yema, fortificados.</p>
+                <p><strong>Déficit:</strong> Debilidad ósea, dolor muscular.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Calcio</h3>
+                <p><strong>Beneficios:</strong> Huesos y dientes fuertes, función muscular.</p>
+                <p><strong>Fuentes:</strong> Lácteos, tofu, brócoli, sardinas.</p>
+                <p><strong>Déficit:</strong> Osteoporosis, calambres.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Hierro</h3>
+                <p><strong>Beneficios:</strong> Transporte de oxígeno, energía.</p>
+                <p><strong>Fuentes:</strong> Carnes, lentejas, espinacas.</p>
+                <p><strong>Déficit:</strong> Anemia, palidez, fatiga.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Zinc</h3>
+                <p><strong>Beneficios:</strong> Inmunidad, cicatrización, crecimiento.</p>
+                <p><strong>Fuentes:</strong> Mariscos, frutos secos, carne.</p>
+                <p><strong>Déficit:</strong> Baja inmunidad, caída del cabello.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Magnesio</h3>
+                <p><strong>Beneficios:</strong> Músculos, nervios, sueño y azúcar en sangre.</p>
+                <p><strong>Fuentes:</strong> Semillas, aguacate, espinaca.</p>
+                <p><strong>Déficit:</strong> Calambres, ansiedad, insomnio.</p>
+            </div>
+
+        </div>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+          <meta charset="UTF-8">
+          <title>Frutas y sus beneficios</title>
+          <style>
+            body {
+              font-family: 'Segoe UI', sans-serif;
+              margin: 0;
+              background-color: #e3f2fd;
+            }
+        
+            .titulo {
+              text-align: center;
+              font-size: 1.8rem;
+              padding: 30px 20px 0;
+              color: #d4d4d4;
+            }
+        
+            .container {
+              display: flex;
+              padding: 30px 40px 60px;
+            }
+        
+            .frutas {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              width: 40%;
+            }
+        
+            .frutas img {
+              width: 100%;
+              border-radius: 10px;
+              cursor: pointer;
+              transition: transform 0.3s ease;
+            }
+        
+            .frutas img:hover {
+              transform: scale(1.05);
+            }
+        
+            .info-fruta {
+              width: 60%;
+              padding-left: 40px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+        
+            .info-fruta img {
+              width: 250px;
+              height: auto;
+              border-radius: 15px;
+              margin-bottom: 20px;
+              box-shadow: 0 4px 10px rgb(135, 184, 217);
+            }
+        
+            .info-fruta h2 {
+              color: #000000;
+              margin: 0;
+            }
+        
+            .info-fruta p {
+              font-size: 1.1em;
+              line-height: 1.6;
+              color: #ffffff;
+            }
+          </style>
+        </head>
+        <body>
+        
+        <!-- Dentro del mismo archivo HTML, justo después de tus tarjetas -->
+<section class="seccion-frutas">
+    <h1 class="titulo">Haz click sobre tu fruta favorita y conoce sus propiedades</h1>
+
+    <div class="container">
+        <div class="frutas">
+            <img src="frutas/manzana.png" alt="Manzana" onclick="mostrarInfo('manzana')">
+            <img src="frutas/platano.png" alt="Plátano" onclick="mostrarInfo('platano')">
+            <img src="frutas/uva.png" alt="Uva" onclick="mostrarInfo('uva')">
+            <img src="frutas/fresa.png" alt="Fresa" onclick="mostrarInfo('fresa')">
+            <img src="frutas/mango.png" alt="Mango" onclick="mostrarInfo('mango')">
+            <img src="frutas/coco.png" alt="Coco" onclick="mostrarInfo('coco')">
+            <img src="frutas/durazno.png" alt="Durazno" onclick="mostrarInfo('durazno')">
+            <img src="frutas/kiwi.png" alt="Kiwi" onclick="mostrarInfo('kiwi')">
+            <img src="frutas/sandia.png" alt="Sandía" onclick="mostrarInfo('sandia')">
+        </div>
+
+        <div class="info-fruta" id="infoFruta">
+            <h2>Haz clic en una fruta para ver su información</h2>
+        </div>
+    </div>
+</section>
+<style>
+    .info-fruta {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .info-fruta img {
+        max-width: 100%; 
+        height: auto;
+        display: block; 
+        margin: 0 auto; 
+</style>
+<script>
+const datosFrutas = {
+    manzana: {
+        nombre: "Manzana",
+        imagen: "frutas/manzana.png",
+        origen: "Originaria de Asia Central.",
+        beneficios: "La manzana es una fruta que ayuda a mejorar la digestión gracias a su contenido en fibra. Además, es buena para controlar el colesterol y sus antioxidantes protegen tanto la piel como el corazón. Es ideal para una colación saludable."
+    },
+    platano: {
+        nombre: "Plátano",
+        imagen: "frutas/platano.png",
+        origen: "Originario del sudeste asiático.",
+        beneficios: "El plátano es una excelente fuente de energía natural. Su alto contenido de potasio lo convierte en un aliado del corazón y los músculos, ayudando a prevenir calambres y regular la presión arterial."
+    },
+    uva: {
+        nombre: "Uva",
+        imagen: "frutas/uva.png",
+        origen: "Regiones del Mediterráneo y Asia.",
+        beneficios: "Las uvas, sobre todo las moradas, son ricas en antioxidantes como el resveratrol, que favorecen la circulación y cuidan el corazón. También ayudan a combatir el envejecimiento celular."
+    },
+    fresa: {
+        nombre: "Fresa",
+        imagen: "frutas/fresa.png",
+        origen: "Híbrido entre especies de América y Europa.",
+        beneficios: "La fresa es refrescante y rica en vitamina C, ideal para reforzar el sistema inmunológico. Tiene propiedades antiinflamatorias y antioxidantes que benefician tanto la piel como la salud general."
+    },
+    mango: {
+        nombre: "Mango",
+        imagen: "frutas/mango.png",
+        origen: "Sur de Asia, especialmente la India.",
+        beneficios: "El mango es una fruta tropical cargada de vitamina A y C, que ayudan a fortalecer las defensas y mejorar la visión. También es bueno para la digestión gracias a sus enzimas naturales."
+    },
+    coco: {
+        nombre: "Coco",
+        imagen: "frutas/coco.png",
+        origen: "Regiones tropicales del Pacífico.",
+        beneficios: "El coco aporta grasas saludables que dan energía de forma sostenida. Su agua es hidratante y sus nutrientes favorecen el funcionamiento del cerebro y el sistema digestivo."
+    },
+    durazno: {
+        nombre: "Durazno",
+        imagen: "frutas/durazno.png",
+        origen: "China.",
+        beneficios: "El durazno es rico en antioxidantes, fibra y vitamina C. Contribuye a una piel sana, mejora la digestión y fortalece el sistema inmune. Además, es bajo en calorías y muy refrescante."
+    },
+    kiwi: {
+        nombre: "Kiwi",
+        imagen: "frutas/kiwi.png",
+        origen: "China, popularizado en Nueva Zelanda.",
+        beneficios: "El kiwi tiene un contenido altísimo de vitamina C, incluso más que la naranja. Mejora la digestión, refuerza el sistema inmunológico y favorece la salud del corazón, la piel y los ojos."
+    },
+    sandia: {
+        nombre: "Sandía",
+        imagen: "frutas/sandia.png",
+        origen: "África.",
+        beneficios: "La sandía es una fruta muy hidratante por su alto contenido en agua. Contiene licopeno, un antioxidante que protege el corazón y ayuda a los músculos, además de ser refrescante y deliciosa."
+    }
+};
+
+function mostrarInfo(fruta) {
+    const data = datosFrutas[fruta];
+    const info = `
+        <img src="${data.imagen}" alt="${data.nombre}">
+        <h2>${data.nombre}</h2>
+        <p><strong>Origen:</strong> ${data.origen}</p>
+        <p><strong>Aportaciones:</strong> ${data.beneficios}</p>
+    `;
+    document.getElementById('infoFruta').innerHTML = info;
+}
+</script>
+
+        <!-- Botón para regresar -->
+        <a href="NUTRICONOCIMIENTOOO pag web.htm" class="regresar">Regresar al Inicio</a>
+    </section>
+
+</body>
+</html>

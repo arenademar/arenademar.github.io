@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recetas Saludables</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1c62ad;
+      padding-top: 150px;
+    }
+
+    nav.menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(12, 60, 108, 0.998);
+      padding: 15px 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    nav.menu .logo img {
+      height: 100px;
+    }
+
+    nav.menu .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      width: auto;
+    }
+
+    nav.menu .links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+
+    nav.menu .links a:hover {
+      background-color: #336ab8;
+    }
+
+    .recetas-section {
+      background-color: #000;
+      padding: 80px 60px 80px;
+    }
+
+    .recetas-section h1 {
+      text-align: center;
+      font-size: 3em;
+      color: #ffffff;
+      margin-bottom: 40px;
+    }
+
+    .swiper {
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      max-width: 350px;  /* Asegura que las imágenes no sean demasiado pequeñas */
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgb(0, 0, 0);
+    }
+
+    .swiper-slide h3 {
+      color: #ffffff;
+      margin: 10px 0 8px;
+      font-size: 1.2em;
+    }
+
+    .boton-ver-receta {
+      background-color: #44bc56;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .boton-ver-receta:hover {
+      background-color: #2f7c3b;
+      transform: scale(1.05);
+    }
+
+    .boton-volver {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 80px;
+      background-color: #44bc56;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .boton-volver:hover {
+      background-color: #304b17;
+      transform: scale(1.05);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 8px;
+    }
+
+    .close {
+      color: #44bc56;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #2f7c3b;
+    }
+    .info-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f8f8, #dbe2e8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-text {
+  flex: 1;
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 1.8;
+  color: #333;
+  padding-right: 20px;
+}
+
+.info-text h3 {
+  color: #2a9d8f;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.info-box {
+  width: 350px;
+  padding: 25px;
+  background-color: #2a9d8f;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.info-box h4 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.info-box p {
+  font-size: 1em;
+  margin-bottom: 15px;
+  opacity: 0.85;
+}
+
+.info-box:hover {
+  transform: translateY(-10px);
+}
+
+.info-box p:last-child {
+  font-weight: bold;
+  color: #ffeb3b;  /* Highlight the final sentence */
+}
+
+@media (max-width: 768px) {
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-text {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .info-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <nav class="menu">
+    <div class="logo">
+        <img src="logo/logo.jpg" alt="Logo Nutrición">
+    </div>
+    <div class="links">
+        <a href="NUTRICONOCIMIENTOOO pag web.htm">Inicio</a>
+          <li><a href="mision vision.htm">Objetivo</a></li>
+        <a href="Guia.htm">Beneficios</a>
+        <li><a href="recetas.htm">Recetas</a></li>
+        <a href="NUTRICONOCIMIENTOOO pag web.htm#contacto">Contacto</a>
+
+    </div>
+</nav>
+  <!-- Carrusel en sección negra -->
+  <section class="recetas-section">
+    <h1>Recetas Saludables</h1>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="recetas/Ensalada de Quinoa y Aguacate.png" alt="Ensalada de Quinoa y Aguacate">
+          <h3>Ensalada de Quinoa y Aguacate</h3>
+          <a href="#" class="boton-ver-receta" onclick="openModal('modal1')">Ver receta</a>
+        </div>
+        <div class="swiper-slide">
+          <img src="recetas/Pancakes de Avena y Banana.png" alt="Pancakes de Avena y Banana">
+          <h3> Pancakes de Avena y Banana</h3>
+          <a href="#" class="boton-ver-receta" onclick="openModal('modal2')">Ver receta</a>
+        </div>
+        <div class="swiper-slide">
+          <img src="recetas/Wrap de Pollo y Vegetales.png" alt="Wrap de Pollo y Vegetales">
+          <h3>Wrap de Pollo y Vegetales</h3>
+          <a href="#" class="boton-ver-receta" onclick="openModal('modal3')">Ver receta</a>
+        </div>
+        <div class="swiper-slide">
+          <img src="recetas/Pasta Integral con Verduras.png" alt="Pasta Integral con Verduras">
+          <h3>Pasta Integral con Verduras</h3>
+          <a href="#" class="boton-ver-receta" onclick="openModal('modal4')">Ver receta</a>
+        </div>
+        <div class="swiper-slide">
+          <img src="recetas/Curry de Garbanzos.png" alt="Curry de Garbanzos">
+          <h3>Curry de Garbanzos</h3>
+          <a href="#" class="boton-ver-receta" onclick="openModal('modal5')">Ver receta</a>
+        </div>
+        <div class="swiper-slide">
+          <img src="recetas/Parfait de Yogur y Frutas.png" alt="Parfait de Yogur y Frutas">
+          <h3>Parfait de Yogur y Frutas</h3>
+          <a href="#" class="boton-ver-receta" onclick="openModal('modal6')">Ver receta</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="info-section">
+    <!-- Texto a la izquierda -->
+    <div class="info-text">
+      <h3>¿Por qué es importante cocinar en casa y comer sano?</h3>
+      <p>Preparar tus propias recetas en casa no solo te da el control sobre lo que comes, también te conecta con tu salud y bienestar. Al elegir ingredientes frescos y balanceados, nutres tu cuerpo de forma consciente y previenes enfermedades. Además, cocinar puede ser una forma de relajarte, cuidar de los que amas y disfrutar de la comida sin culpas.</p>
+    </div>
+  
+    <!-- Caja "Sabías que..." a la derecha -->
+    <div class="info-box">
+      <h4>¿Sabías que...?</h4>
+      <p>¿Sabías que una buena alimentación puede mejorar tu memoria y concentración?</p>
+      <p>Comer saludablemente ayuda a regular hormonas como la serotonina, ¡la que te hace sentir feliz!</p>
+      <p>Lo que comes no solo alimenta tu cuerpo, también nutre tu mente.</p>
+      <p>Una dieta balanceada puede ayudarte a dormir mejor, rendir más y reducir el estrés.</p>
+      <p>El intestino produce más del 90% de la serotonina del cuerpo. ¡Comer bien es clave para sentirte bien!</p>
+    </div>
+  </div>
+  
+
+  <a href="NUTRICONOCIMIENTOOO pag web.htm" class="boton-volver">Volver a la Página Principal</a>
+
+  <!-- Modal 1 -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h2>Ensalada de Quinoa y Aguacate</h2>
+    <p><strong>Ingredientes:</strong></p>
+    <ul>
+      <li>1 taza de quinoa cocida</li>
+      <li>1 aguacate en cubos</li>
+      <li>½ taza de tomates cherry cortados</li>
+      <li>¼ taza de cebolla morada picada</li>
+      <li>Jugo de 1 limón</li>
+      <li>1 cucharada de aceite de oliva</li>
+      <li>Sal y pimienta al gusto</li>
+    </ul>
+    <p><strong>Preparación:</strong></p>
+    <ol>
+      <li>Comienza cocinando la quinoa: enjuaga bien una taza de quinoa bajo agua fría y ponla a hervir en una olla con 2 tazas de agua. Cocina durante 12–15 minutos hasta que el agua se haya absorbido completamente. Deja reposar y enfría.</li>
+      <li>Mientras tanto, corta el aguacate en cubos pequeños, los tomates cherry por la mitad y pica finamente la cebolla morada.</li>
+      <li>En un bol grande, mezcla la quinoa cocida con el aguacate, tomates y cebolla.</li>
+      <li>Exprime el jugo de limón sobre la mezcla y rocía con aceite de oliva. Agrega sal al gusto y mezcla suavemente para no aplastar el aguacate.</li>
+      <li>Deja reposar en el refrigerador por 10 minutos antes de servir para que los sabores se integren bien.</li>
+    </ol>
+    <a href="#" class="boton-ver-receta" onclick="closeModal('modal1')">Cerrar</a>
+  </div>
+</div>
+
+
+  <!-- Modal 2 -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h2>Pancakes de Avena y Banana</h2>
+      <p><strong>Ingredientes:</strong></p>
+      <ul>
+        <li>1 plátano maduro</li>
+        <li>2 huevos</li>
+        <li>½ taza de avena</li>
+        <li>½ cucharadita de canela</li>
+      </ul>
+      <p><strong>Preparación:</strong></p>
+      <ol> 
+        <li>Tritura el plátano en un bol hasta obtener un puré suave.</li>
+
+        <li>Agrega los dos huevos al puré de plátano y bate bien hasta que la mezcla esté homogénea.</li>
+        
+        <li>Incorpora la avena y la canela. Mezcla hasta que todos los ingredientes estén bien integrados. Si la masa está muy espesa, añade un poco de agua o leche para aligerarla.</li>
+        
+          <li>Calienta una sartén antiadherente a fuego medio y añade un poco de aceite o mantequilla.</li>
+        
+            <li>Vierte pequeñas porciones de la mezcla en la sartén, formando círculos. Cocina por 2–3 minutos de cada lado hasta que estén dorados.</li>
+        
+              <li> Sirve con fruta fresca, miel o yogurt por encima.
+      </ol>
+      <a href="#" class="boton-ver-receta" onclick="closeModal('modal2')">Cerrar</a>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <h2>Wrap de Pollo y Vegetales</h2>
+    <p><strong>Ingredientes:</strong></p>
+    <ul>
+      <li>1 pechuga de pollo cocida y desmenuzada</li>
+      <li>1 zanahoria rallada</li>
+      <li>½ pimiento rojo en tiras</li>
+      <li>1 taza de hojas de espinaca</li>
+      <li>1 tortilla integral</li>
+      <li>1 cucharada de yogur natural o hummus (opcional)</li>
+    </ul>
+    <p><strong>Preparación:</strong></p>
+    <ol>
+      <li>Cocina la pechuga de pollo a la parrilla o en sartén con un poco de aceite, sal y pimienta. Luego desmenúzala en tiras.</li>
+      <li>Ralla la zanahoria y corta el pimiento en tiras finas. Lava bien las hojas de espinaca.</li>
+      <li>Calienta la tortilla en una sartén por unos segundos para que sea más flexible.</li>
+      <li>Unte una capa de yogur natural o hummus en el centro de la tortilla (opcional, pero le da un toque cremoso).</li>
+      <li>Coloca el pollo desmenuzado, las verduras y las espinacas sobre la tortilla.</li>
+      <li>Enrolla el wrap firmemente, corta por la mitad y sirve.</li>
+    </ol>
+    <a href="#" class="boton-ver-receta" onclick="closeModal('modal3')">Cerrar</a>
+  </div>
+</div>
+
+  <!-- Modal 4 -->
+<div id="modal4" class="modal">
+  <div class="modal-content">
+    <h2>Pasta Integral con Verduras</h2>
+    <p><strong>Ingredientes:</strong></p>
+    <ul>
+      <li>1 taza de pasta integral</li>
+      <li>½ calabacín en rodajas</li>
+      <li>½ taza de champiñones</li>
+      <li>1 tomate picado</li>
+      <li>1 diente de ajo</li>
+      <li>1 cucharada de aceite de oliva</li>
+      <li>Sal y pimienta al gusto</li>
+    </ul>
+    <p><strong>Preparación:</strong></p>
+    <ol>
+      <li>Cocina la pasta integral en abundante agua con sal siguiendo las instrucciones del paquete. Escurre y reserva.</li>
+      <li>En una sartén grande, calienta el aceite de oliva y sofríe el ajo picado. Agrega los champiñones y el calabacín y cocina durante 5 minutos hasta que estén tiernos.</li>
+      <li>Añade el tomate picado y cocina durante 2–3 minutos más.</li>
+      <li>Incorpora la pasta cocida a la sartén y mezcla todo bien. Ajusta la sazón con sal y pimienta.</li>
+      <li>Sirve caliente, y si lo deseas, agrega queso rallado por encima.</li>
+    </ol>
+    <a href="#" class="boton-ver-receta" onclick="closeModal('modal4')">Cerrar</a>
+  </div>
+</div>
+
+  <!-- Modal 5 -->
+<div id="modal5" class="modal">
+  <div class="modal-content">
+    <h2>Curry de Garbanzos</h2>
+    <p><strong>Ingredientes:</strong></p>
+    <ul>
+      <li>1 taza de garbanzos cocidos</li>
+      <li>½ cebolla picada</li>
+      <li>1 diente de ajo</li>
+      <li>1 tomate picado</li>
+      <li>1 cucharadita de curry en polvo</li>
+      <li>½ taza de leche de coco</li>
+      <li>1 cucharada de aceite de oliva</li>
+      <li>Sal al gusto</li>
+    </ul>
+    <p><strong>Preparación:</strong></p>
+    <ol>
+      <li>En una sartén grande, calienta el aceite de oliva y sofríe la cebolla y el ajo hasta que estén dorados.</li>
+      <li>Añade el tomate picado y cocina hasta que se ablande.</li>
+      <li>Incorpora el curry en polvo y cocina por 1 minuto para que libere todo su sabor.</li>
+      <li>Agrega los garbanzos cocidos y la leche de coco. Cocina durante 10 minutos a fuego bajo, mezclando ocasionalmente.</li>
+      <li>Ajusta la sal y sirve caliente con arroz o pan naan.</li>
+    </ol>
+    <a href="#" class="boton-ver-receta" onclick="closeModal('modal5')">Cerrar</a>
+  </div>
+</div>
+
+
+  <!-- Modal 6 -->
+<div id="modal6" class="modal">
+  <div class="modal-content">
+    <h2>Parfait de Yogur y Frutas</h2>
+    <p><strong>Ingredientes:</strong></p>
+    <ul>
+      <li>1 taza de yogur natural</li>
+      <li>½ taza de frutas frescas (fresas, arándanos, plátano)</li>
+      <li>¼ taza de avena o granola</li>
+    </ul>
+    <p><strong>Preparación:</strong></p>
+    <ol>
+      <li>En un vaso o copa, coloca una capa de yogur natural en el fondo.</li>
+      <li>Añade una capa de frutas frescas como fresas, plátano o arándanos.</li>
+      <li>Agrega una capa de avena o granola para darle un toque crujiente.</li>
+      <li>Repite las capas hasta llenar el vaso, terminando con frutas y granola encima.</li>
+      <li>Sirve frío y disfruta de un parfait saludable y delicioso.</li>
+    </ol>
+    <a href="#" class="boton-ver-receta" onclick="closeModal('modal6')">Cerrar</a>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      centeredSlides: true,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+    });
+
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión y Visión</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0c3c6c; 
+}
+
+        /* Menú de navegación */
+        nav.menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(12, 60, 108, 0.998);
+            padding: 15px 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        nav.menu .logo img {
+            height: 100px;
+        }
+
+        nav.menu .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: auto;
+        }
+
+        nav.menu .links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        nav.menu .links a:hover {
+            background-color: #336ab8;
+            color: rgb(255, 255, 255);
+        }
+
+        .menu-spacing {
+            height: 90px;
+        }
+
+        /* Video de fondo */
+        .video-header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .texto-superpuesto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            z-index: 1;
+            width: 80%;
+        }
+
+        .contenido {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: transparent; 
+
+
+        h2 {
+            font-size: 2em;
+            color: #1c62ad;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        a.regresar {
+            color: #1c62ad;
+            font-size: 1.1em;
+            text-decoration: none;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a.regresar:hover {
+            background-color: #1c62ad;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+   <nav class="menu">
+        <div class="logo">
+            <img src="logo/logo.jpg" alt="Logo Nutrición">
+        </div>
+        <div class="links">
+            <a href="NUTRICONOCIMIENTOOO pag web.htm">Inicio</a>
+              <li><a href="mision vision.htm">Objetivo</a></li>
+            <a href="Guia.htm">Beneficios</a>
+            <a href="#consejos">Consejos</a>
+            <li><a href="recetas.htm">Recetas</a></li>
+            <a href="NUTRICONOCIMIENTOOO pag web.htm#contacto">Contacto</a>
+
+        </div>
+    </nav>
+
+
+    <div class="menu-spacing"></div>
+
+    <!-- Sección con video y texto superpuesto -->
+    <div class="video-header">
+        <video autoplay muted loop>
+            <source src="video nutrelle/Video nutrelle.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+        <div class="texto-superpuesto">
+            Estamos comprometidos con tu bienestar y contigo en cada paso hacia una vida saludable.
+        </div>
+    </div>
+<!-- Contenido Misión y Visión con imagen -->
+<div class="contenido" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+
+    <!-- Imagen a la izquierda -->
+    <div style="flex: 1; min-width: 280px;">
+        <img src="nutrimision/nutrimision.jpg" alt="Imagen representativa" style="width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    </div>
+
+    <!-- Misión y Visión a la derecha -->
+    <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 30px;">
+        <div style="background-color: #e9f1fb; border-left: 5px solid #1c62ad; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: right;">
+            <h2 style="margin-top: 0;">Misión</h2>
+            <p style="margin: 0;">
+                Nuestra misión es promover una vida saludable a través de una educación alimentaria que inspire a las personas a tomar decisiones conscientes sobre su nutrición y bienestar.
+            </p>
+        </div>
+        <div style="background-color: #e9f1fb; border-left: 5px solid #1c62ad; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: right;">
+            <h2 style="margin-top: 0;">Visión</h2>
+            <p style="margin: 0;">
+                Queremos ser una referencia en educación nutricional, ayudando a miles de personas a alcanzar sus objetivos de salud mediante hábitos alimenticios saludables y sostenibles.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Apartado de Nuestro Equipo -->
+<div class="nuestro-equipo" style="background-color: #9cd4f5; padding: 60px 40px; text-align: center; margin-top: 40px; border-radius: 20px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); max-width: 1200px; margin: 40px auto;">
+    <h2 style="font-size: 2.8em; color: #0d2343; font-weight: 600; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
+        Nuestro Equipo
+    </h2>
+    <p style="font-size: 1.2em; color: #0c0523; line-height: 1.8; max-width: 900px; margin: 0 auto; font-style: italic;">
+        Somos una empresa comprometida con la salud y el bienestar de las personas, dedicada a ofrecer productos nutricionales de la más alta calidad. Con una sólida trayectoria en el sector, hemos logrado posicionarnos como líderes en el mercado, tanto a nivel nacional como internacional. 
+        En nuestra empresa, el desarrollo integral de nuestros colaboradores es una prioridad, fomentando un ambiente que promueve su crecimiento personal y profesional.
+    </p>
+</div>
+<!-- Sección ¿Quieres trabajar con nosotros? -->
+<div style="text-align: center; margin-top: 50px; padding: 40px;">
+    <div style="background-color: #000000; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); display: inline-block; max-width: 800px;">
+        <h2 style="font-size: 2em; color: #ffffff; font-weight: 700; margin-bottom: 20px;">
+            ¿Quieres trabajar con nosotros?
+        </h2>
+        <p style="font-size: 1.1em; color: #ffffff; line-height: 1.8; text-align: center;">
+            Únete a nuestra familia, conoce nuestras oportunidades laborales y crece junto a nosotros en un ambiente donde tu desarrollo personal y profesional es una prioridad.
+        </p>
+    </div>
+    
+    <!-- Botón "Contactanos" para redirigir al WhatsApp -->
+    <div style="margin-top: 30px;">
+        <a href="https://wa.me/1234567890" target="_blank" style="background-color: #4de85f; color: white; font-size: 1.1em; font-weight: bold; padding: 14px 28px; border-radius: 30px; text-decoration: none; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+            Contactanos
+        </a>
+    </div>
+</div>
+
+<div style="margin-top: 50px; text-align: center;">
+    <a href="NUTRICONOCIMIENTOOO pag web.htm" class="regresar">Volver a la página principal</a>
+</div>
+
+<style>
+    a.regresar {
+        background-color: #55e5f8;
+        color: rgb(240, 240, 240);
+        font-size: 1.2em;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-weight: bold;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    a.regresar:hover {
+        background-color: #fefeff;
+        color: #06075c;
+        transform: scale(1.05);
+    }
+</style>
+</html>
